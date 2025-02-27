@@ -18,10 +18,15 @@ def formulario():
         db.session.add(nuevo_usuario)
         db.session.commit()
 
-        return redirect(url_for('main.exito'))
+        return redirect(url_for('main.resultados'))
 
     return render_template('form.html', form=form)  # Pasar form a la plantilla
 
 @main.route('/exito')
 def exito():
     return render_template('success.html')
+
+@main.route('/resultados')
+def resultados():
+    usuarios = Usuario.query.all()  # Obtener todos los usuarios de la BD
+    return render_template('resultados.html', usuarios=usuarios)  # Pasar los datos
