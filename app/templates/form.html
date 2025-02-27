@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Regístrate</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="input-group">
+                <label for="nombre">Nombre:</label>
+                {{ form.nombre(class="input-field", placeholder="Tu nombre") }}
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                {{ form.email(class="input-field", placeholder="Tu email") }}
+            </div>
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
